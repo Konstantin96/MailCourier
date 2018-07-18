@@ -11,7 +11,7 @@ namespace Express_mail.lib.Modul
     public abstract class Express
     {
         public Express() { }
-        public string DeliveryNoteId { get; set; }
+        public int DeliveryNoteId { get; set; }
         public Address senderAddress { get; set; }
         public Address receiverAddress { get; set; }
         public string senderFIO { get; set; }

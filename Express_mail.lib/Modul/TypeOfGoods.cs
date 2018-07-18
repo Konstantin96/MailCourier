@@ -8,7 +8,7 @@ namespace Express_mail.lib.Modul
 {
     public enum TypeGood
     {
-        Sklad,dveri
+        SkladSklad,SkladDveri,DveriDveri
     }
     public enum TypeDocument
     {

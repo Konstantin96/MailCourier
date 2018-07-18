@@ -10,11 +10,11 @@ namespace Express_mail.lib.Modul
 {
     public class DataBaseServiceExpress
     {
-        public void AddCourierWayBill(ExpressMail e)
+        public void AddCourier(ExpressMail e)
         {
             try
             {
-                using (var db = new LiteDatabase(@"CourierWaybill.db"))
+                using (var db = new LiteDatabase(@"Courier.db"))
                 {
                     LiteCollection<ExpressMail> collection = db.GetCollection<ExpressMail>("Express");
                     collection.Insert(e);
@@ -26,11 +26,11 @@ namespace Express_mail.lib.Modul
                 throw;
             }
         }
-        public void AddCourierWayBill(BuisnesMail b)
+        public void AddCourier(BuisnesMail b)
         {
             try
             {
-                using (var db = new LiteDatabase(@"CourierWaybill.db"))
+                using (var db = new LiteDatabase(@"Courier.db"))
                 {
                     LiteCollection<BuisnesMail> collection = db.GetCollection<BuisnesMail>("Business");
                     collection.Insert(b);
@@ -42,11 +42,11 @@ namespace Express_mail.lib.Modul
                 throw;
             }
         }
-        public void AddCourierWayBill(BlizhMail b)
+        public void AddCourier(BlizhMail b)
         {
             try
             {
-                using (var db = new LiteDatabase(@"CourierWaybill.db"))
+                using (var db = new LiteDatabase(@"Courier.db"))
                 {
                     LiteCollection<BlizhMail> collection = db.GetCollection<BlizhMail>("Blitz");
                     collection.Insert(b);
@@ -64,12 +64,12 @@ namespace Express_mail.lib.Modul
         /// </summary>
         /// <param name="e">ID курьерской накладной</param>
         /// <returns>Найденная курьерская наладная</returns>
-        public BlizhMail GetBlitzKNById(string e)
+        public BlizhMail GetBlitzId(int e)
         {
             BlizhMail blitzKN = null;
             try
             {
-                using (var db = new LiteDatabase(@"CourierWaybill.db"))
+                using (var db = new LiteDatabase(@"Courier.db"))
                 {
                     LiteCollection<BlizhMail> collection = db.GetCollection<BlizhMail>("Blitz");
                     blitzKN = (BlizhMail)collection.Find(d => d.DeliveryNoteId == e);
@@ -87,12 +87,12 @@ namespace Express_mail.lib.Modul
         /// </summary>
         /// <param name="e">ID курьерской накладной</param>
         /// <returns>Найденная курьерская наладная</returns>
-        public BuisnesMail GetBusinessKNyId(string e)
+        public BuisnesMail GetBusinessId(int e)
         {
             BuisnesMail businessKN = null;
             try
             {
-                using (var db = new LiteDatabase(@"CourierWaybill.db"))
+                using (var db = new LiteDatabase(@"Courier.db"))
                 {
                     LiteCollection<BuisnesMail> collection = db.GetCollection<BuisnesMail>("Business");
                     businessKN = (BuisnesMail)collection.Find(d => d.DeliveryNoteId == e);
@@ -110,12 +110,12 @@ namespace Express_mail.lib.Modul
         /// </summary>
         /// <param name="e">ID курьерской накладной</param>
         /// <returns>Найденная курьерская наладная</returns>
-        public ExpressMail GetExpressKNyId(string e)
+        public ExpressMail GetExpressId(int e)
         {
             ExpressMail expressKN = null;
             try
             {
-                using (var db = new LiteDatabase(@"CourierWaybill.db"))
+                using (var db = new LiteDatabase(@"Courier.db"))
                 {
                     LiteCollection<ExpressMail> collection = db.GetCollection<ExpressMail>("Business");
                     expressKN = (ExpressMail)collection.Find(d => d.DeliveryNoteId == e);
